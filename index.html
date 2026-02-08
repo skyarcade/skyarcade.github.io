@@ -19,11 +19,12 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
         radial-gradient(900px 500px at 15% 10%, rgba(106,92,255,0.20), transparent 55%),
         radial-gradient(800px 500px at 85% 20%, rgba(0,255,180,0.18), transparent 55%),
+        radial-gradient(700px 450px at 50% 90%, rgba(0,255,180,0.12), transparent 60%),
         linear-gradient(180deg, var(--bg1), var(--bg2));
       min-height:100vh;
     }
@@ -32,91 +33,317 @@
       margin: 0 auto;
       padding: 44px 18px 64px;
     }
-    h1{margin:0;font-size:34px}
-    .subtitle{color:var(--muted);margin-top:6px}
-    .box{
-      margin-top:20px;
-      padding:18px;
-      border-radius:16px;
-      background:var(--card);
-      border:1px solid var(--stroke);
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,0.25), transparent 55%),
+        linear-gradient(135deg, rgba(0,255,180,0.90), rgba(106,92,255,0.90));
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45), 0 0 28px var(--glow);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+    h1{
+      margin:0;
+      font-size: 34px;
+      letter-spacing:0.2px;
+      line-height:1.1;
+    }
+    .subtitle{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+    .nav{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text);
+      text-decoration:none;
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .hero{
+      margin-top: 26px;
+      padding: 22px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 12px 38px rgba(0,0,0,0.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(600px 240px at 20% 10%, rgba(0,255,180,0.10), transparent 60%),
+        radial-gradient(520px 240px at 80% 20%, rgba(106,92,255,0.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .hero h2{
+      margin:0 0 8px;
+      font-size: 18px;
+      letter-spacing:0.2px;
+    }
+    .hero p{
+      margin:0;
+      color: var(--muted);
+      max-width: 620px;
+    }
+    .cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top: 14px;
     }
     .btn{
-      display:inline-block;
-      margin-top:10px;
-      padding:12px 16px;
-      border-radius:12px;
-      background:linear-gradient(135deg, rgba(0,255,180,1), rgba(106,92,255,0.95));
-      color:#06101a;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
       text-decoration:none;
-      font-weight:600;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
     }
-    .btn.alt{
-      background:none;
-      border:1px solid var(--stroke);
-      color:var(--text);
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.18);
     }
-    footer{
-      margin-top:40px;
-      font-size:13px;
-      color:var(--muted);
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(0,255,180,0.95), rgba(106,92,255,0.85));
+      border-color: rgba(255,255,255,0.18);
+      color: #06101a;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.35), 0 0 28px var(--glow);
     }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, rgba(0,255,180,1), rgba(106,92,255,0.95));
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+    .card{
+      padding: 18px;
+      border-radius: 18px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      box-shadow: 0 12px 34px rgba(0,0,0,0.25);
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0.2px;
+    }
+    .card p{
+      margin:0 0 10px;
+      color: var(--muted);
+    }
+    .list{
+      margin: 12px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+    .li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(0,255,180,0.55);
+      margin-top: 5px;
+      flex: 0 0 auto;
+    }
+    .small{
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12.5px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: rgba(233,238,252,0.9);
+    }
+    .footer{
+      margin-top: 22px;
+      color: rgba(233,238,252,0.55);
+      font-size: 13px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .footer a{ color: rgba(233,238,252,0.75); text-decoration:none; }
+    .footer a:hover{ color: var(--text); }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Skyarcade</h1>
+          <div class="subtitle">Free, lightweight PC utilities • no ads • no installers • optional support</div>
+        </div>
+      </div>
 
-<div class="wrap">
+      <div class="nav">
+        <a class="pill" href="https://www.paypal.me/skyarcade1" target="_blank" rel="noopener">Donate</a>
+        <a class="pill" href="https://github.com/skyarcade" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
 
-  <h1>Skyarcade</h1>
-  <div class="subtitle">
-    Free, lightweight PC utilities • no ads • no installers • optional support
+    <div class="hero">
+      <div class="hero-inner">
+        <div>
+          <h2>Spotlight is live</h2>
+          <p>
+            Spotlight highlights the area around your mouse while dimming the rest of the screen.
+            No install. No ads. Runs locally.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary"
+               href="https://github.com/skyarcade/skyarcade.github.io/releases/download/v1.0-spotlight/SpotlightApp.exe"
+               target="_blank" rel="noopener">
+              Download Spotlight
+            </a>
+            <a class="btn"
+               href="https://www.paypal.me/skyarcade1"
+               target="_blank" rel="noopener">
+              Support via PayPal
+            </a>
+          </div>
+
+          <div class="small" style="margin-top:10px;">
+            Download comes from GitHub Releases. Donations are optional.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Downloads</h3>
+        <p>
+          Each tool has a version, notes, and a direct download.
+        </p>
+        <ul class="list">
+          <li class="li"><span class="dot"></span><div><strong>Simple:</strong> click download, run it.</div></li>
+          <li class="li"><span class="dot"></span><div><strong>Clean:</strong> no bundled installers or “extra” software.</div></li>
+          <li class="li"><span class="dot"></span><div><strong>Local:</strong> runs on your PC.</div></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Support (optional)</h3>
+        <p>
+          If Spotlight helps you, donations are appreciated but never required.
+        </p>
+        <a class="btn primary" href="https://www.paypal.me/skyarcade1" target="_blank" rel="noopener">
+          Donate on PayPal
+        </a>
+        <div class="small" style="margin-top:10px;">
+          PayPal.me: <span class="kbd">paypal.me/skyarcade1</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Spotlight (v1.0)</h3>
+        <ul class="list">
+          <li class="li"><span class="dot"></span><div><strong>What it does:</strong> spotlight around the mouse + dim background</div></li>
+          <li class="li"><span class="dot"></span><div><strong>Install:</strong> none (standalone exe)</div></li>
+          <li class="li"><span class="dot"></span><div><strong>Status:</strong> first public release</div></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Contact</h3>
+        <p>
+          Suggestions and issues: post them on GitHub.
+        </p>
+        <div class="small">
+          Add more apps later and we’ll build a proper list.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Built by <strong>Skyarcade</strong></div>
+      <div>
+        <a href="https://github.com/skyarcade/skyarcade.github.io" target="_blank" rel="noopener">View site repo</a>
+      </div>
+    </div>
   </div>
-
-  <div class="box">
-    <h2>Spotlight</h2>
-    <p>
-      Spotlight is a small standalone PC utility.
-      Hold a key to highlight the area around your mouse while dimming everything else.
-    </p>
-    <p>
-      No install. No ads. Runs locally.
-    </p>
-
-    <a class="btn"
-       href="https://github.com/skyarcade/skyarcade.github.io/releases/download/v1.0-spotlight/SpotlightApp.exe"
-       target="_blank">
-      Download Spotlight
-    </a>
-  </div>
-
-  <div class="box">
-    <h2>Support (optional)</h2>
-    <p>
-      If Spotlight helps you, donations are appreciated but never required.
-    </p>
-
-    <a class="btn alt"
-       href="https://www.paypal.me/skyarcade1"
-       target="_blank">
-      Support via PayPal
-    </a>
-  </div>
-
-  <div class="box">
-    <h2>Contact</h2>
-    <p>
-      Suggestions or issues can be posted on GitHub.
-    </p>
-  </div>
-
-  <footer>
-    Built by Skyarcade
-  </footer>
-
-</div>
-
 </body>
 </html>
+
 
 
 
