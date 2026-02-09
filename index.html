@@ -55,9 +55,19 @@
       box-shadow: 0 10px 28px rgba(0,0,0,0.45), 0 0 28px var(--glow);
       border: 1px solid rgba(255,255,255,0.18);
     }
-    h1{margin:0;font-size:34px}
-    .subtitle{margin-top:6px;color:var(--muted)}
-    .nav{display:flex;gap:10px}
+    h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:.3px;
+    }
+    .subtitle{
+      margin-top:6px;
+      color:var(--muted);
+    }
+    .nav{
+      display:flex;
+      gap:10px;
+    }
     .pill{
       padding:10px 12px;
       border-radius:999px;
@@ -94,14 +104,20 @@
       gap:16px;
       margin-top:16px;
     }
-    @media(max-width:860px){.grid{grid-template-columns:1fr}}
+    @media(max-width:860px){
+      .grid{grid-template-columns:1fr}
+    }
     .card{
       padding:18px;
       border-radius:18px;
       background:var(--card);
       border:1px solid var(--stroke);
     }
-    footer{margin-top:40px;color:var(--muted);font-size:13px}
+    footer{
+      margin-top:40px;
+      color:var(--muted);
+      font-size:13px;
+    }
   </style>
 </head>
 <body>
@@ -128,7 +144,7 @@
       No install. No ads. Runs locally.
     </p>
 
-    <!-- Spotlight now links to its own page -->
+    <!-- ONLY CHANGE: this now goes to spotlight.html -->
     <a class="btn primary" href="spotlight.html">
       View Spotlight
     </a>
@@ -156,6 +172,7 @@
 </div>
 </body>
 </html>
+
 
 
 
